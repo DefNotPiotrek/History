@@ -11,27 +11,26 @@ public class DrawQuestions {
     Random random = new Random();
     Dates dates = new Dates();
 
-    int score = 0;
+    int dateSize = dates.date.size();
 
     public void draw() throws IOException {
         ArrayList<String> dateName = dates.dateName;
 
-        for (int i = 0; i < 43; i++){
+        for (int i = 0; i < dateSize;){
             int date = random.nextInt(dateName.size());
             System.out.println(dates.dateName.get(date));
             String answer = reader.readLine();
             if (answer.equals(dates.date.get(date))){
-                score++;
                 System.out.println("Dobrze!");
                 System.out.println();
+                dates.date.remove(date);
+                dates.dateName.remove(date);
+                i++;
             }
             else {
                 System.out.println("Błędna odpowiedź, poprawna odpowiedź to: " + dates.date.get(date));
                 System.out.println();
             }
-
-            dates.date.remove(date);
-            dates.dateName.remove(date);
         }
     }
 

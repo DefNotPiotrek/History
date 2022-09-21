@@ -11,13 +11,6 @@ public class Interface {
     public void menu() throws IOException {
         System.out.println("Witaj! Zaczynajmy zabawę!\n*Kliknij Enter*");
         scanner.nextLine();
-
-        try {
             draw.draw();
-
-        }
-        catch (IllegalArgumentException e) {
-            System.out.println("Twój wynik to: " + draw.score + "/42");
-        }
     }
 }
